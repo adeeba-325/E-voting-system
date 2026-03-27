@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 40px;
+  width: 30vw;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.login-box h1 {
+  margin-bottom: 25px;
+  color: #0f2027;
+}
+
+.role-selection button {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.student-btn {
+  background: #4e73df;
+  color: white;
+}
+
+.student-btn:hover {
+  background: #2e59d9;
+}
+
+.admin-btn {
+  background: #e74a3b;
+  color: white;
+}
+
+.admin-btn:hover {
+  background: #c0392b;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  color: #203a43;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  border-color: #4e73df;
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1cc88a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #17a673;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.extra-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-links a {
+  font-size: 13px;
+  color: #4e73df;
+  text-decoration: none;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}
+
+.back-btn {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: #203a43;
+  cursor: pointer;
+  font-weight: 500;
+}
