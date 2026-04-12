@@ -1,0 +1,145 @@
+/* Background */
+.signup-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: Arial, sans-serif;
+}
+
+/* Card */
+.signup-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Heading */
+.signup-card h2 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.signup-card input,
+.signup-card select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.signup-card input:focus,
+.signup-card select:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+/* Email box */
+.email-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.email-box span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Button */
+.signup-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #4facfe;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-card button:hover {
+  background: #3a8dde;
+}
+.signin-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signin-link a {
+  text-decoration: none;
+  color: #555;
+}
+
+.signin-link span {
+  color: #4facfe;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.signin-link span:hover {
+  text-decoration: underline;
+  color: #3a8dde;
+}
+/* Password box */
+.password-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative; /* for optional show/hide icon */
+}
+
+.password-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.password-box input:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+/* Optional: show/hide icon */
+.password-box .toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.password-box .toggle-password:hover {
+  color: #4facfe;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 4px 0 10px;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

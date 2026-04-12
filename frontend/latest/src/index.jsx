@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./IndexMain.css";
 import { FaUserGraduate, FaUserShield, FaEnvelope, FaLock } from "react-icons/fa";
+import { Link, useNavigate } from "react-router";
+import { loginUser } from "./services/fetch";
 
-function Index() {
+function Signin() {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if already logged in
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      navigate('/homeUser');
+    }
+  }, [navigate]);
 
   const validateEmail = () => {
     if (role === "student" && !email.endsWith("@stu.manit.ac.in")) {
@@ -18,7 +29,7 @@ function Index() {
     return "";
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const validationError = validateEmail();
     if (validationError) {
@@ -26,8 +37,20 @@ function Index() {
       return;
     }
 
+    setLoading(true);
     setError("");
-    alert("Login Successful!");
+
+    try {
+      const response = await loginUser(email, password);
+      // On success, store login status and redirect to homeUser
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userRole', role);
+      navigate('/homeUser');
+    } catch (error) {
+      setError("Invalid login credentials");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,13 +108,13 @@ function Index() {
 
             {error && <p className="error">{error}</p>}
 
-            <button type="submit" className="login-btn">
-              Login
+            <button type="submit" className="login-btn" disabled={loading || !email || !password}>
+              {loading ? 'Logging in...' : 'Login'}
             </button>
 
             <div className="extra-links">
               <a href="#">Forgot Password?</a>
-              <a href="#">New User? Sign Up</a>
+             <Link to="/signup">New User? Sign Up</Link>
             </div>
 
             <button
@@ -108,4 +131,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Signin;
