@@ -1,0 +1,224 @@
+.home-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #eef5ff 0%, #f7f9fc 42%, #ffffff 100%);
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home-container {
+  width: min(1160px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(34, 60, 80, 0.08);
+  padding: 28px;
+}
+
+.home-nav {
+  margin-bottom: 28px;
+}
+
+.home-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home-nav-link,
+.home-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #f3f7ff;
+  color: #164a95;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.home-nav-link:hover,
+.home-logout-btn:hover {
+  transform: translateY(-2px);
+  background: #e8f0ff;
+}
+
+.home-nav-link.active {
+  background: #164a95;
+  color: #ffffff;
+}
+
+.home-logout-btn {
+  cursor: pointer;
+  background: #fff0ed;
+  color: #b33a10;
+  border-color: #f0c3b2;
+}
+
+.home-logout-btn:hover {
+  background: #ffe5dd;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.home-subtitle {
+  margin: 0;
+  color: #5f7aa1;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.home-title {
+  margin: 8px 0 0 0;
+  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  color: #10234b;
+  line-height: 1.1;
+}
+
+.home-news-section {
+  background: linear-gradient(135deg, #fff8f0 0%, #eef4ff 100%);
+  border: 2px solid #f0c3b2;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.home-news-badge {
+  display: inline-block;
+  background: #ff6b35;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.home-news-headline {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+  color: #10234b;
+  font-weight: 800;
+}
+
+.home-news-message {
+  margin: 0;
+  color: #4c5e81;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.home-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.action-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 2px solid rgba(22, 74, 149, 0.15);
+  border-radius: 22px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 55px rgba(15, 40, 95, 0.12);
+  border-color: rgba(22, 74, 149, 0.25);
+}
+
+.action-icon {
+  font-size: 3.2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.action-card h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  color: #10234b;
+}
+
+.action-card p {
+  margin: 0 0 24px 0;
+  color: #5f7aa1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-button-register {
+  background: #2045b0;
+  color: #ffffff;
+}
+
+.action-button-register:hover {
+  background: #183ea2;
+  transform: translateY(-2px);
+}
+
+.action-button-vote {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.action-button-vote:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 18px;
+  }
+
+  .home-header {
+    margin-bottom: 28px;
+  }
+
+  .home-title {
+    font-size: 1.8rem;
+  }
+
+  .action-card {
+    padding: 24px 18px;
+  }
+
+  .action-icon {
+    font-size: 2.4rem;
+  }
+
+  .home-nav-list {
+    justify-content: center;
+  }
+}

@@ -34,9 +34,23 @@ exports.postLogin = async (req, res) => {
       user: { 
         id: user._id, 
         name: user.name, 
-        email: user.email
+        email: user.email,
+        scholarNumber: user.scholarNumber
       } 
     });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getUserProfile = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId).select('name email scholarNumber branch section year hasVoted votedCandidate');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json({ user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

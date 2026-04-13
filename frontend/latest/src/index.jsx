@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./IndexMain.css";
 import { FaUserGraduate, FaUserShield, FaEnvelope, FaLock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "./services/fetch";
 
 function Signin() {

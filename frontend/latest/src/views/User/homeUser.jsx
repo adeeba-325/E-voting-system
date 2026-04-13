@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateSession, logoutUser } from '../../services/fetch';
-import '../../App.css';
+import './homeUser.css';
 
 const HomeUser = () => {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ const HomeUser = () => {
       try {
         await validateSession(userId, sessionToken);
       } catch (error) {
-        // Session invalid on other device
         localStorage.removeItem('sessionToken');
         localStorage.removeItem('userId');
         localStorage.removeItem('isLoggedIn');
@@ -37,27 +36,64 @@ const HomeUser = () => {
       navigate('/');
     } catch (error) {
       console.error('Logout error:', error);
-      // Force logout even if API fails
       localStorage.removeItem('sessionToken');
       localStorage.removeItem('userId');
       localStorage.removeItem('isLoggedIn');
       navigate('/');
     }
   };
+
   return (
-    <div style={{ backgroundColor: '#000', minHeight: '100vh', color: 'white' }}>
-      <nav style={{ backgroundColor: '#111', padding: '20px', textAlign: 'center' }}>
-        <ul style={{ listStyleType: 'none', display: 'flex', justifyContent: 'center', gap: '30px', margin: 0, padding: 0 }}>
-          <li><Link to="/home" style={{ color: '#00e6ff', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #00e6ff' }}>Home</Link></li>
-          <li><Link to="/register" style={{ color: '#00e6ff', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #00e6ff' }}>Register</Link></li>
-          <li><Link to="/vote" style={{ color: '#00e6ff', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #00e6ff' }}>Vote</Link></li>
-          <li><Link to="/result" style={{ color: '#00e6ff', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #00e6ff' }}>Result</Link></li>
-          <li><button onClick={handleLogout} style={{ color: '#00e6ff', background: 'none', border: 'none', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #00e6ff', cursor: 'pointer' }}>Logout</button></li>
-        </ul>
-      </nav>
-      <div style={{ padding: '40px', textAlign: 'center' }}>
-        <h1 className="main-heading" style={{ fontSize: '3rem' }}>Welcome to the E-Vote System</h1>
-        <p style={{ color: 'white', fontSize: '1.5rem', marginTop: '20px' }}>This is the home page for users.</p>
+    <div className="home-page">
+      <div className="home-container">
+        <nav className="home-nav">
+          <ul className="home-nav-list">
+            <li>
+              <Link to="/homeUser" className="home-nav-link active">Home</Link>
+            </li>
+            <li>
+              <Link to="/register" className="home-nav-link">Register</Link>
+            </li>
+            <li>
+              <Link to="/vote" className="home-nav-link">Vote</Link>
+            </li>
+            <li>
+              <Link to="/result" className="home-nav-link">Result</Link>
+            </li>
+            <li>
+              <button onClick={handleLogout} className="home-logout-btn">Logout</button>
+            </li>
+          </ul>
+        </nav>
+
+        <header className="home-header">
+          <p className="home-subtitle">Welcome back</p>
+          <h1 className="home-title">E-Vote Election System</h1>
+        </header>
+
+        <section className="home-news-section">
+          <span className="home-news-badge">📢 Breaking News</span>
+          <h2 className="home-news-headline">Registrations Are Going On!</h2>
+          <p className="home-news-message">
+            Interested students can register as candidates for the Class Representatives election. Don't miss your chance to lead your class—register now and make your voice heard!
+          </p>
+        </section>
+
+        <div className="home-actions">
+          <Link to="/register" className="action-card" style={{ textDecoration: 'none' }}>
+            <span className="action-icon">👥</span>
+            <h2>Become a CR</h2>
+            <p>Register yourself as a Class Representative candidate and share your vision for the class.</p>
+            <button className="action-button action-button-register">Register Now</button>
+          </Link>
+
+          <Link to="/vote" className="action-card" style={{ textDecoration: 'none' }}>
+            <span className="action-icon">✅</span>
+            <h2>Choose Your CR</h2>
+            <p>Cast your vote for the candidate who best represents your class and your interests.</p>
+            <button className="action-button action-button-vote">Vote Now</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

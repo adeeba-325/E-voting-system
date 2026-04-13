@@ -1,0 +1,230 @@
+.vote-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #eef5ff 0%, #f7f9fc 42%, #ffffff 100%);
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.vote-card {
+  width: min(1180px, 100%);
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(34, 60, 80, 0.08);
+  padding: 28px;
+  margin: 12px;
+}
+
+.vote-nav {
+  margin-bottom: 22px;
+}
+
+.vote-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vote-nav-link,
+.vote-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #f4f8ff;
+  color: #164a95;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.vote-nav-link:hover,
+.vote-logout-btn:hover {
+  transform: translateY(-1px);
+  background: #e8f0ff;
+}
+
+.vote-nav-link.active {
+  background: #164a95;
+  color: #ffffff;
+}
+
+.vote-logout-btn {
+  cursor: pointer;
+  background: #ffefeb;
+  color: #b33a10;
+  border-color: #f0c3b2;
+}
+
+.vote-header {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.vote-subtitle {
+  margin: 0;
+  color: #5f7aa1;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+}
+
+.vote-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  color: #10234b;
+}
+
+.vote-description {
+  margin: 0;
+  max-width: 760px;
+  color: #4f5d7a;
+  line-height: 1.7;
+}
+
+.vote-status,
+.vote-success,
+.vote-error,
+.vote-empty {
+  padding: 14px 18px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.vote-status {
+  background: #eef4ff;
+  color: #214a92;
+}
+
+.vote-success {
+  background: #e6f7ef;
+  color: #166537;
+}
+
+.vote-error {
+  background: #fff1f0;
+  color: #9f2a2c;
+}
+
+.candidate-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.candidate-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(22, 74, 149, 0.12);
+  border-radius: 24px;
+  padding: 22px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.candidate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 50px rgba(15, 40, 95, 0.12);
+  border-color: rgba(22, 74, 149, 0.18);
+}
+
+.candidate-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.candidate-card h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #10234b;
+}
+
+.candidate-role {
+  margin: 8px 0 0;
+  color: #57729b;
+  font-size: 0.95rem;
+}
+
+.vote-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  background: #eff6ff;
+  color: #1c4f96;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+
+.candidate-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.candidate-meta span {
+  background: rgba(22, 74, 149, 0.08);
+  color: #164a95;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.candidate-details {
+  color: #4d5e7c;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.candidate-manifesto {
+  margin: 12px 0 0;
+  color: #334056;
+}
+
+.vote-button {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  background: #2045b0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.vote-button:hover:not(:disabled) {
+  background: #183ea2;
+  transform: translateY(-1px);
+}
+
+.vote-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .vote-card {
+    padding: 18px;
+  }
+
+  .vote-nav-list {
+    gap: 8px;
+  }
+
+  .candidate-card {
+    padding: 18px;
+  }
+}

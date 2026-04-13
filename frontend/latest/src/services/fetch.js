@@ -75,3 +75,18 @@ export const logoutUser = async (userId) => {
     throw error;
   }
 };
+
+export const getUserProfile = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/user-profile/${userId}`);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to load user profile');
+    }
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

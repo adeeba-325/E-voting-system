@@ -32,6 +32,15 @@ const userSchema=new mongoose.Schema({
     type: String,
     default: null
   },
+  hasVoted: {
+    type: Boolean,
+    default: false
+  },
+  votedCandidate: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Candidate',
+    default: null
+  },
   lastLogin: {
     type: Date,
     default: null

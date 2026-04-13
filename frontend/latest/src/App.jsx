@@ -8,6 +8,9 @@ import Signup from './signup'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeUser from './views/User/homeUser'
 import NotFound from './NotFound'
+import Register from './views/User/registerUser'
+import Vote from './views/User/vote'
+import ViewResults from './views/User/result'
 
 function App() {
 
@@ -20,7 +23,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Signin/>} />
         <Route path="/signup" element={<Signup/>} />
+        <Route path='/home' element={<HomeUser/>} />
         <Route path='/homeUser' element={<HomeUser/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path='/vote' element={<Vote/>} />
+        <Route path='/result' element={<ViewResults/>} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
