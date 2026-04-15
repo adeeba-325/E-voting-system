@@ -14,7 +14,6 @@ function Register() {
     wasPreviousCR: false
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loadingProfile, setLoadingProfile] = useState(true);
 
@@ -113,22 +112,11 @@ function Register() {
         }
       });
 
-      setSubmitted(true);
-      setFormData({
-        name: userProfile.name || '',
-        cgpa: '',
-        crReason: '',
-        wasPreviousCR: false
-      });
+      navigate('/homeUser');
     } catch (err) {
       setError(err.message || 'Candidate registration failed. Please try again.');
       return;
     }
-
-    // Clear success state after 2 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 2000);
   };
 
   return (
@@ -167,12 +155,6 @@ function Register() {
           <h1>CR Registration Form</h1>
           <p>Register to become a Class Representative</p>
         </div>
-
-        {submitted && (
-          <div className="success-message">
-            ✓ Registration submitted successfully!
-          </div>
-        )}
 
         {error && (
           <div className="error-message">

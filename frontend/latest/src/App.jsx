@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       <div>
-        <div className="main-heading">
+        {/* <div className="main-heading">
   Welcome to MANIT Voting Portal
-</div>
+</div> */}
       <Routes>
         <Route path="/" element={<Signin/>} />
         <Route path="/signup" element={<Signup/>} />
