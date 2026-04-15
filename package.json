@@ -1,0 +1,8 @@
+{
+  "name": "e-voting-system",
+  "private": true,
+  "scripts": {
+    "start:backend": "cd backend && node app.js",
+    "start:frontend": "cd frontend/latest && npm run dev"
+  }
+}

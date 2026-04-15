@@ -1,5 +1,6 @@
 const Candidate = require('../model/candidates');
 const User = require('../model/logInfo');
+const ElectionControl = require('../admin/model/electionControl');
 
 exports.getCandidates = async (req, res) => {
   try {
@@ -81,6 +82,11 @@ exports.castVote = async (req, res) => {
     const candidate = await Candidate.findById(candidateId);
     if (!candidate) {
       return res.status(404).json({ message: 'Candidate not found' });
+    }
+
+    const election = await ElectionControl.findOne({ department: candidate.branch, section: candidate.section });
+    if (!election || !election.isActive) {
+      return res.status(403).json({ message: 'Voting is currently disabled for this department and section' });
     }
 
     candidate.votes = (candidate.votes || 0) + 1;

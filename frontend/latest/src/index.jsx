@@ -20,11 +20,8 @@ function Signin() {
   }, [navigate]);
 
   const validateEmail = () => {
-    if (role === "student" && !email.endsWith("@stu.manit.ac.in")) {
+    if (!email.endsWith("@stu.manit.ac.in")) {
       return "Student email must end with @stu.manit.ac.in";
-    }
-    if (role === "admin" && !email.endsWith("@manit.ac.in")) {
-      return "Admin email must end with @manit.ac.in";
     }
     return "";
   };
@@ -62,26 +59,18 @@ function Signin() {
           <div className="role-selection">
             <button className="student-btn" onClick={() => setRole("student")}>
               <FaUserGraduate className="icon" />
-              Login as Student
+              Student Login
             </button>
 
-            <button className="admin-btn" onClick={() => setRole("admin")}>
+            <Link to="/admin/login" className="admin-btn" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: 'white' }}>
               <FaUserShield className="icon" />
-              Login as Admin
-            </button>
+              Admin Login
+            </Link>
           </div>
         ) : (
           <form onSubmit={handleLogin}>
             <h2>
-              {role === "student" ? (
-                <>
-                  <FaUserGraduate /> Student Login
-                </>
-              ) : (
-                <>
-                  <FaUserShield /> Admin Login
-                </>
-              )}
+              <FaUserGraduate /> Student Login
             </h2>
 
             <div className="input-group">
@@ -114,7 +103,7 @@ function Signin() {
 
             <div className="extra-links">
               <a href="#">Forgot Password?</a>
-             <Link to="/signup">New User? Sign Up</Link>
+              <Link to="/signup">New User? Sign Up</Link>
             </div>
 
             <button
