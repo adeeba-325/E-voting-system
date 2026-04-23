@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./IndexMain.css";
-import { FaUserGraduate, FaUserShield, FaEnvelope, FaLock } from "react-icons/fa";
+import manitLogo from "./assets/Maulana_Azad_National_Institute_of_Technology_Logo.png";
+import { FaUserGraduate, FaUserShield, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "./services/fetch";
 
@@ -8,9 +9,18 @@ function Signin() {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [taglineIndex, setTaglineIndex] = useState(0);
   const navigate = useNavigate();
+
+  const taglines = [
+    "Welcome to MANIT E-Voting Portal",
+    "Choose Your Class Representative",
+    "Your Voice Matters",
+    "Make Democracy Work for You"
+  ];
 
   useEffect(() => {
     // Check if already logged in
@@ -18,6 +28,13 @@ function Signin() {
       navigate('/homeUser');
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const taglineInterval = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % taglines.length);
+    }, 4000);
+    return () => clearInterval(taglineInterval);
+  }, [taglines.length]);
 
   const validateEmail = () => {
     if (!email.endsWith("@stu.manit.ac.in")) {
@@ -52,8 +69,14 @@ function Signin() {
 
   return (
     <div className="container">
+      <div className="tagline-section">
+        <h2 className="animated-tagline">{taglines[taglineIndex]}</h2>
+      </div>
       <div className="login-box">
-        <h1>🗳 Vote Management System</h1>
+        <div className="login-header">
+          <img src={manitLogo} alt="MANIT Logo" className="login-logo" />
+          <h1>MANIT Voting Portal</h1>
+        </div>
 
         {!role ? (
           <div className="role-selection">
@@ -87,12 +110,19 @@ function Signin() {
             <div className="input-group">
               <FaLock className="input-icon" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
 
             {error && <p className="error">{error}</p>}
