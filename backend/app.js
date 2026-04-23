@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const URL = process.env.MONGODB_URI || 'mongodb+srv://saumya:sargamsaumya@cluster0.tox3ifk.mongodb.net/?appName=Cluster0';
+const URL = process.env.MONGODB_URI;
 const { default: mongoose } = require('mongoose');
 const addUser = require('./routes/logRoute');
 const registerUser = require('./routes/userRoute');
@@ -13,6 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // const MongoDBStore = require('connect-mongodb-session')(session);
+
+if (!URL) {
+  throw new Error('MONGODB_URI is not set in backend/.env');
+}
+
 app.get('/', (req, res) => {
   res.send('Sever is connected');
 });
